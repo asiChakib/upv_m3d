@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 import sys
+from toobj import *
+import config
 
 def create_blender(user_data):
     register_design(user_data)
@@ -9,6 +11,14 @@ def create_blender(user_data):
         code = f.read()
         exec(code)
 
+def generate_design(user_data):
+    register_design(user_data)
+    sys.argv = ["main_design.py", user_data]
+    with open("main_design.py") as f:
+        code = f.read()
+        exec(code)
+    
+    
 def register_design(user_data):
     """
     Retrieves the selected values from the GUI and stores them in the user_data dictionary.
@@ -65,7 +75,7 @@ def create_gui():
 
     # Register Button
     register_button = tk.Button(
-        window, text="Generate Design", command=lambda: (register_design(user_data), window.destroy())
+        window, text="Generate Design", command=lambda: (generate_design(user_data), window.destroy())
     )
     register_button.grid(row=3, column=1, padx=5, pady=15)
     

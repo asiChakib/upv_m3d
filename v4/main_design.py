@@ -1,10 +1,10 @@
-from utils import create_gui, register_design
-from toobj import *
+from utils import create_gui
+from toobj import create_rounded_prism, create_rectangular_prism, create_cylinder, save_obj
 import config
 import sys
 
-window, user_data = create_gui()
-window.mainloop()
+user_data = sys.argv[1]
+
 
 print(user_data['button_side'])
 
