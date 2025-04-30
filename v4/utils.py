@@ -10,6 +10,7 @@ def create_blender(user_data):
     with open("main_blender.py") as f:
         code = f.read()
         exec(code)
+    
 
 def generate_design(user_data):
     register_design(user_data)
